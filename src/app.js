@@ -7,7 +7,7 @@ import { showCatalog } from "./views/catalog.js";
 import { showLogin } from "./views/login.js";
 import { showRegister } from "./views/register.js";
 import { logout } from "./data/users.js";
-
+import { updateNav } from "./util.js";
 updateNav();
 
 page("/", showHome);
@@ -20,7 +20,7 @@ page("/register", showRegister);
 page.start();
 
 document.getElementById("logoutBtn").addEventListener("click", async () => {
-  logout();
+  await logout();
   updateNav();
   page.redirect("/");
 });

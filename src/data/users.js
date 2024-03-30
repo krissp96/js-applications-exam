@@ -3,9 +3,9 @@ import { get, post } from "./request.js";
 //TODO adapt user profile to exam requirements (identity, extra properties, etc.)
 
 const endpoints = {
-  login: "users/login",
-  register: "users/register",
-  logout: "users/logout",
+  login: "/users/login",
+  register: "/users/register",
+  logout: "/users/logout",
 };
 
 export async function login(email, password) {
