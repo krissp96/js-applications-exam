@@ -18,7 +18,7 @@ const itemTemplate = (item) => html`
       <p class="availability">${item.availability}</p>
       <p class="type">Type: ${item.type}</p>
     </div>
-    <a class="details-btn" href="/details">Uncover More</a>
+    <a class="details-btn" href="/details/${item._id}">Uncover More</a>
   </div>
 `;
 

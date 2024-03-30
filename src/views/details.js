@@ -46,18 +46,18 @@ const detailsTemplate = (
 
 export async function showDetails(ctx) {
   const id = ctx.params.id;
+
+  const requests = [getItemById(id)];
   console.log("object");
+  // const item = await getItemById(id);
+  console.log("object2");
 
-  // const requests = [getItemById(id)];
-
-  const item = await getItemById(id);
-
-  // const user = getUserData();
+  const user = getUserData();
   // // if (user) {
   // //   requests.push(isGoing(id, user._id));
   // // }
 
-  // const [items, visitors, userGoing] = await Promise.all(requests);
+  const [item, visitors, userGoing] = await Promise.all(requests);
   const hasUser = !!user;
   const isOwner = hasUser && user._id == item._ownerId;
   render(

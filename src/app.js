@@ -13,7 +13,7 @@ updateNav();
 
 page("/", showHome);
 page("/market", showMarket);
-page("/detais", showDetails);
+page("/details/", showDetails);
 page("/login", showLogin);
 page("/register", showRegister);
 // page("/create", showCreate);
