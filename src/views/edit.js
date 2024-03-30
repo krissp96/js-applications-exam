@@ -2,6 +2,7 @@ import { getItemById, updateItem } from "../data/items.js";
 
 import { html, page, render } from "../lib.js";
 import { createSubmitHandler } from "../util.js";
+import { showNotification } from "./notificationError.js";
 
 const editTemplate = (item, onEdit) => html`
   <section id="edit">
@@ -74,7 +75,8 @@ export async function showEdit(ctx) {
       !type ||
       !description
     ) {
-      return alert("All fields are required!");
+      console.log("object");
+      return showNotification("All fields are required!");
     }
     await updateItem(id, {
       item,

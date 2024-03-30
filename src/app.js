@@ -10,6 +10,7 @@ import { logout } from "./data/users.js";
 import { updateNav } from "./util.js";
 import { showDetails } from "./views/details.js";
 import { showEdit } from "./views/edit.js";
+import { showCreate } from "./views/sellView.js";
 
 updateNav();
 
@@ -18,8 +19,7 @@ page("/market", showMarket);
 page("/details/:id", showDetails);
 page("/login", showLogin);
 page("/register", showRegister);
-// page("/create", showCreate);
-// page("/catalog/:id", showDetails);
+page("/sell", showCreate);
 page("/edit/:id", showEdit);
 page.start();
 

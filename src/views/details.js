@@ -72,6 +72,10 @@ export async function showDetails(ctx) {
   );
 
   async function onDelete() {
+    const result = confirm("Delete this item?");
+    if (!result) {
+      return;
+    }
     await deleteItem(id);
     page.redirect("/market");
   }
