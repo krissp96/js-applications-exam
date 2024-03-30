@@ -12,7 +12,7 @@ const marketTemp = (items) => html`
 const itemTemplate = (item) => html`
   <div class="item">
     <img src=${item.imageUrl} alt="example1" />
-    <h3 class="model">${item.name}</h3>
+    <h3 class="model">${item.item}</h3>
     <div class="item-info">
       <p class="price">Price: €${item.price}</p>
       <p class="availability">${item.availability}</p>

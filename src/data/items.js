@@ -4,7 +4,7 @@ const endpoints = {
   dashboard: "/data/cyberpunk?sortBy=_createdOn%20desc",
   items: "/data/cyberpunk",
   details: "/data/cyberpunk/",
-  getItemById: "/data/cyberpunk",
+  getItemById: "/data/cyberpunk/",
 };
 ///if needed to sort in ascending, just use the value to sort on and nothing after 20 .. ex ?sortBy=_dateOn%20
 

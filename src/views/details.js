@@ -5,19 +5,17 @@ import { getUserData } from "../util.js";
 
 const detailsTemplate = (
   data,
-  // hasUser,
+  hasUser,
   isOwner,
-  // visitors,
-  // userGoing,
   onDelete
-  // onGoing
+  
 ) => html`
 
   <section id="details">
     <div id="details-wrapper">
       <div>
         <img id="details-img" src=${data.imageUrl} alt="example1" />
-        <p id="details-title">${data.name}</p>
+        <p id="details-title">${data.item}</p>
       </div>
       <div id="info-wrapper">
         <div id="details-description">
@@ -27,12 +25,18 @@ const detailsTemplate = (
           <p id="item-description">${data.description}</p>
         </div>
         <!--Edit and Delete are only for creator-->
+          ${hasUser ? html`<div id="action-buttons">`
          ${
            isOwner
              ? html`
                  <div id="action-buttons">
                    <a href="/edit/${data._id}" id="edit-btn">Edit</a>
-                   <a href="" id="delete-btn" @click=${onDelete}>Delete</a>
+                   <a
+                     href="javascript:void(0)"
+                     id="delete-btn"
+                     @click=${onDelete}
+                     >Delete</a
+                   >
                  </div>
                `
              : null
@@ -47,17 +51,17 @@ const detailsTemplate = (
 export async function showDetails(ctx) {
   const id = ctx.params.id;
 
-  const requests = [getItemById(id)];
   console.log("object");
-  // const item = await getItemById(id);
-  console.log("object2");
+  const requests = [getItemById(id)];
+  // // const item = await getItemById(id);
+  // console.log("object2");
 
   const user = getUserData();
-  // // if (user) {
-  // //   requests.push(isGoing(id, user._id));
-  // // }
+  // // // if (user) {
+  // // //   requests.push(isGoing(id, user._id));
+  // // // }
 
-  const [item, visitors, userGoing] = await Promise.all(requests);
+  const [item] = await Promise.all(requests);
   const hasUser = !!user;
   const isOwner = hasUser && user._id == item._ownerId;
   render(

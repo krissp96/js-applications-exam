@@ -9,16 +9,18 @@ import { showRegister } from "./views/register.js";
 import { logout } from "./data/users.js";
 import { updateNav } from "./util.js";
 import { showDetails } from "./views/details.js";
+import { showEdit } from "./views/edit.js";
+
 updateNav();
 
 page("/", showHome);
 page("/market", showMarket);
-page("/details/", showDetails);
+page("/details/:id", showDetails);
 page("/login", showLogin);
 page("/register", showRegister);
 // page("/create", showCreate);
 // page("/catalog/:id", showDetails);
-// page("/edit/:id", showEdit);
+page("/edit/:id", showEdit);
 page.start();
 
 document.getElementById("logoutBtn").addEventListener("click", async () => {
