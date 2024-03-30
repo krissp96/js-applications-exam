@@ -3,13 +3,7 @@ import { getPeopleGoingEId, goToEvent, isGoing } from "../data/going.js";
 import { html, page, render } from "../lib.js";
 import { getUserData } from "../util.js";
 
-const detailsTemplate = (
-  data,
-  hasUser,
-  isOwner,
-  onDelete
-  
-) => html`
+const detailsTemplate = (data, hasUser, isOwner, onDelete) => html`
 
   <section id="details">
     <div id="details-wrapper">
@@ -25,22 +19,23 @@ const detailsTemplate = (
           <p id="item-description">${data.description}</p>
         </div>
         <!--Edit and Delete are only for creator-->
-          ${hasUser ? html`<div id="action-buttons">`
-         ${
-           isOwner
-             ? html`
-                 <div id="action-buttons">
-                   <a href="/edit/${data._id}" id="edit-btn">Edit</a>
-                   <a
-                     href="javascript:void(0)"
-                     id="delete-btn"
-                     @click=${onDelete}
-                     >Delete</a
-                   >
-                 </div>
-               `
-             : null
-         }
+          ${
+            hasUser
+              ? html`<div id="action-buttons">
+                  ${isOwner
+                    ? html` <div id="action-buttons">
+                        <a href="/edit/${data._id}" id="edit-btn">Edit</a>
+                        <a
+                          href="javascript:void(0)"
+                          id="delete-btn"
+                          @click=${onDelete}
+                          >Delete</a
+                        >
+                      </div>`
+                    : null}
+                </div> `
+              : null
+          }
     
         </div>
       </div>
